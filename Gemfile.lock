@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/glaubinix/omniauth-ldap
+  revision: a5612df40565b5e816428dc6b7b616f0c05d3282
+  specs:
+    gitlab_omniauth-ldap (1.0.4)
+      net-ldap (~> 0.3.1)
+      omniauth (~> 1.0)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -186,11 +196,6 @@ GEM
       gitlab-linguist (~> 3.0)
       rugged (~> 0.21.0)
     gitlab_meta (7.0)
-    gitlab_omniauth-ldap (1.0.4)
-      net-ldap (~> 0.3.1)
-      omniauth (~> 1.0)
-      pyu-ruby-sasl (~> 0.0.3.1)
-      rubyntlm (~> 0.1.1)
     gollum-lib (3.0.0)
       github-markup (~> 1.1.0)
       gitlab-grit (~> 2.6.5)
@@ -615,7 +620,7 @@ DEPENDENCIES
   gitlab_emoji (~> 0.0.1.1)
   gitlab_git (~> 6.0)
   gitlab_meta (= 7.0)
-  gitlab_omniauth-ldap (= 1.0.4)
+  gitlab_omniauth-ldap (= 1.0.4)!
   gollum-lib (~> 3.0.0)
   gon (~> 5.0.0)
   grape (~> 0.6.1)
