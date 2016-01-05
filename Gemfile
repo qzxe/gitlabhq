@@ -45,7 +45,7 @@ gem "gitlab_git", '~> 7.2.20'
 # LDAP Auth
 # GitLab fork with several improvements to original library. For full list of changes
 # see https://github.com/intridea/omniauth-ldap/compare/master...gitlabhq:master
-gem 'gitlab_omniauth-ldap', '~> 1.2.1', require: "omniauth-ldap"
+gem 'gitlab_omniauth-ldap', '~> 1.2.1', require: "omniauth-ldap", git: 'https://github.com/innogames/omniauth-ldap', :tag => 'v1.2.1.custom'
 
 # Git Wiki
 gem 'gollum-lib', '~> 4.0.2'
