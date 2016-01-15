@@ -54,6 +54,8 @@ module Ci
     # To prevent db load megabytes of data from trace
     default_scope -> { select(Ci::Build.columns_without_lazy) }
 
+    before_destroy { project }
+
     class << self
       def columns_without_lazy
         (column_names - LAZY_ATTRIBUTES).map do |column_name|
@@ -196,7 +198,7 @@ module Ci
 
     def trace
       trace = raw_trace
-      if project && trace.present?
+      if project && trace.present? && project.runners_token.present?
         trace.gsub(project.runners_token, 'xxxxxx')
       else
         trace
