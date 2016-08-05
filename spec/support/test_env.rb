@@ -20,7 +20,9 @@ module TestEnv
     'gitattributes'         => '5a62481',
     'expand-collapse-diffs' => '4842455',
     'expand-collapse-files' => '025db92',
-    'expand-collapse-lines' => '238e82d'
+    'expand-collapse-lines' => '238e82d',
+    'video'                 => '8879059',
+    'crlf-diff'             => '5938907'
   }
 
   # gitlab-test-fork is a fork of gitlab-fork, but we don't necessarily

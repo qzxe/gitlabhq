@@ -1,6 +1,43 @@
 Please view this file on the master branch, on stable branches it's out of date.
 
-v 8.10.2 (unreleased)
+v 8.10.5 (unreleased)
+
+v 8.10.4
+  - Don't close referenced upstream issues from a forked project.
+  - Fixes issue with dropdowns `enter` key not working correctly. !5544
+  - Fix Import/Export project import not working in HA mode. !5618
+  - Fix Import/Export error checking versions. !5638
+
+v 8.10.3
+  - Fix Import/Export issue importing milestones and labels not associated properly. !5426
+  - Fix timing problems running imports on production. !5523
+  - Add a log message when a project is scheduled for destruction for debugging. !5540
+  - Fix hooks missing on imported GitLab projects. !5549
+  - Properly abort a merge when merge conflicts occur. !5569
+  - Fix importer for GitHub Pull Requests when a branch was removed. !5573
+  - Ignore invalid IPs in X-Forwarded-For when trusted proxies are configured. !5584
+  - Trim extra displayed carriage returns in diffs and files with CRLFs. !5588
+
+v 8.10.2
+  - User can now search branches by name. !5144
+  - Page is now properly rendered after committing the first file and creating the first branch. !5399
+  - Add branch or tag icon to ref in builds page. !5434
+  - Fix backup restore. !5459
+  - Use project ID in repository cache to prevent stale data from persisting across projects. !5460
+  - Fix issue with autocomplete search not working with enter key. !5466
+  - Add iid to MR API response. !5468
+  - Disable MySQL foreign key checks before dropping all tables. !5472
+  - Ensure relative paths for video are rewritten as we do for images. !5474
+  - Ensure current user can retry a build before showing the 'Retry' button. !5476
+  - Add ENV variable to skip repository storages validations. !5478
+  - Added `*.js.es6 gitlab-language=javascript` to `.gitattributes`. !5486
+  - Don't show comment button in gutter of diffs on MR discussion tab. !5493
+  - Rescue Rugged::OSError (lock exists) when creating references. !5497
+  - Fix expand all diffs button in compare view. !5500
+  - Show release notes in tags list. !5503
+  - Fix a bug where forking a project from a repository storage to another would fail. !5509
+  - Fix missing schema update for `20160722221922`. !5512
+  - Update `gitlab-shell` version to 3.2.1 in the 8.9->8.10 update guide. !5516
 
 v 8.10.1
   - Refactor repository storages documentation. !5428
