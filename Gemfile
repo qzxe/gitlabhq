@@ -68,7 +68,7 @@ gem 'github-linguist', '~> 4.7.0', require: 'linguist'
 
 # API
 gem 'grape',        '~> 0.15.0'
-gem 'grape-entity', '~> 0.4.2'
+gem 'grape-entity', '~> 0.6.0'
 gem 'rack-cors',    '~> 0.4.0', require: 'rack/cors'
 
 # Pagination
@@ -135,7 +135,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 
 # Background jobs
 gem 'sidekiq', '~> 4.2'
-gem 'sidekiq-cron', '~> 0.4.0'
+gem 'sidekiq-cron', '~> 0.4.4'
 gem 'redis-namespace', '~> 1.5.2'
 gem 'sidekiq-limit_fetch', '~> 3.4'
 
