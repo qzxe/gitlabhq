@@ -1,4 +1,4 @@
-/* eslint-disable func-names, space-before-function-paren, wrap-iife, no-var, no-unused-expressions, no-param-reassign, no-else-return, quotes, object-shorthand, comma-dangle, camelcase, one-var, vars-on-top, one-var-declaration-per-line, no-return-assign, consistent-return, padded-blocks, max-len */
+/* eslint-disable func-names, space-before-function-paren, wrap-iife, no-var, no-unused-expressions, no-param-reassign, no-else-return, quotes, object-shorthand, comma-dangle, camelcase, one-var, vars-on-top, one-var-declaration-per-line, no-return-assign, consistent-return, padded-blocks, max-len, prefer-template */
 (function() {
   (function(w) {
     var base;
@@ -124,6 +124,19 @@
       $(document).off('scroll');
       // Close any open tooltips
       $('.has-tooltip, [data-toggle="tooltip"]').tooltip('destroy');
+    };
+
+    gl.utils.parseUrl = function (url) {
+      var parser = document.createElement('a');
+      parser.href = url;
+      return parser;
+    };
+
+    gl.utils.parseUrlPathname = function (url) {
+      var parsedUrl = gl.utils.parseUrl(url);
+      // parsedUrl.pathname will return an absolute path for Firefox and a relative path for IE11
+      // We have to make sure we always have an absolute path.
+      return parsedUrl.pathname.charAt(0) === '/' ? parsedUrl.pathname : '/' + parsedUrl.pathname;
     };
 
     gl.utils.isMetaKey = function(e) {

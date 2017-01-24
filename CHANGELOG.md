@@ -2,6 +2,47 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 8.14.7 (2017-01-21)
+
+- Ensure export files are removed after a namespace is deleted.
+- Don't allow project guests to subscribe to merge requests through the API. (Robert Schilling)
+- Prevent users from creating notes on resources they can't access.
+- Prevent users from deleting system deploy keys via the project deploy key API.
+- Upgrade omniauth gem to 1.3.2.
+
+## 8.14.6 (2017-01-10)
+
+- Update the gitlab-markup gem to the version 1.5.1. !8509
+- Updated Turbolinks to mitigate potential XSS attacks.
+
+## 8.14.5 (2016-12-14)
+
+- Moved Leave Project and Leave Group buttons to access_request_buttons from the settings dropdown. !7600
+- fix display hook error message. !7775 (basyura)
+- Remove wrong '.builds-feature' class from the MR settings fieldset. !7930
+- Avoid escaping relative links in Markdown twice. !7940 (winniehell)
+- API: Memoize the current_user so that sudo can work properly. !8017
+- Displays milestone remaining days only when it's present.
+- Allow branch names with dots on API endpoint.
+- Issue#visible_to_user moved to IssuesFinder to prevent accidental use.
+- Shows group members in project members list.
+- Encode input when migrating ProcessCommitWorker jobs to prevent migration errors.
+- Fixed timeago re-rendering every timeago.
+- Fix missing Note access checks by moving Note#search to updated NoteFinder.
+
+## 8.14.4 (2016-12-08)
+
+- Fix diff view permalink highlighting. !7090
+- Fix pipeline author for Slack and use pipeline id for pipeline link. !7506
+- Fix compatibility with Internet Explorer 11 for merge requests. !7525 (Steffen Rauh)
+- Reenables /user API request to return private-token if user is admin and request is made with sudo. !7615
+- Fix Cicking on tabs on pipeline page should set URL. !7709
+- Authorize users into imported GitLab project.
+- Destroy a user's session when they delete their own account.
+- Don't accidentally mark unsafe diff lines as HTML safe.
+- Replace MR access checks with use of MergeRequestsFinder.
+- Remove visible content caching.
+
 ## 8.14.3 (2016-12-02)
 
 - Pass commit data to ProcessCommitWorker to reduce Git overhead. !7744
