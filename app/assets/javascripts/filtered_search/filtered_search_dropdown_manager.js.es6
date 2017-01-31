@@ -61,11 +61,19 @@
       const word = `${tokenName}:${tokenValue}`;
 
       // Get the string to replace
-      const selectionStart = input.selectionStart;
+      let newCaretPosition = input.selectionStart;
       const { left, right } = gl.DropdownUtils.getInputSelectionPosition(input);
 
       input.value = `${inputValue.substr(0, left)}${word}${inputValue.substr(right)}`;
-      gl.FilteredSearchDropdownManager.updateInputCaretPosition(selectionStart, input);
+
+      // If we have added a tokenValue at the end of the input,
+      // add a space and set selection to the end
+      if (right >= inputValue.length && tokenValue !== '') {
+        input.value += ' ';
+        newCaretPosition = input.value.length;
+      }
+
+      gl.FilteredSearchDropdownManager.updateInputCaretPosition(newCaretPosition, input);
     }
 
     static updateInputCaretPosition(selectionStart, input) {
@@ -90,7 +98,15 @@
       const input = this.filteredSearchInput;
       const inputText = input.value.slice(0, input.selectionStart);
       const filterIconPadding = 27;
-      const offset = gl.text.getTextWidth(inputText, this.font) + filterIconPadding;
+      let offset = gl.text.getTextWidth(inputText, this.font) + filterIconPadding;
+
+      const currentDropdownWidth = this.mapping[key].element.clientWidth === 0 ? 200 :
+      this.mapping[key].element.clientWidth;
+      const offsetMaxWidth = this.filteredSearchInput.clientWidth - currentDropdownWidth;
+
+      if (offsetMaxWidth < offset) {
+        offset = offsetMaxWidth;
+      }
 
       this.mapping[key].reference.setOffset(offset);
     }
