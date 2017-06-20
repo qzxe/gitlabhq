@@ -948,7 +948,7 @@ describe User, models: true do
     subject { user.avatar_url }
 
     context 'when avatar file is uploaded' do
-      let(:avatar_path) { "/uploads/user/avatar/#{user.id}/dk.png" }
+      let(:avatar_path) { "/uploads/system/user/avatar/#{user.id}/dk.png" }
 
       it { should eq "http://#{Gitlab.config.gitlab.host}#{avatar_path}" }
     end
@@ -1249,6 +1249,19 @@ describe User, models: true do
     subject { user.authorized_groups }
 
     it { is_expected.to eq([private_group]) }
+  end
+
+  describe '#groups_through_project_authorizations' do
+    it 'returns all groups being ancestor of the authorized project' do
+      user = create(:user)
+      group = create(:group, :private)
+      subgroup = create(:group, :private, parent: group)
+      subsubgroup = create(:group, :private, parent: subgroup)
+      project = create(:empty_project, :private, namespace: subsubgroup)
+      project.add_guest(user)
+
+      expect(user.groups_through_project_authorizations).to contain_exactly(group, subgroup, subsubgroup)
+    end
   end
 
   describe '#authorized_projects', truncate: true do
@@ -1749,6 +1762,34 @@ describe User, models: true do
       user = create(:user)
 
       expect(user.preferred_language).to eq('en')
+    end
+  end
+
+  context '#invalidate_issue_cache_counts' do
+    let(:user) { build_stubbed(:user) }
+
+    it 'invalidates cache for issue counter' do
+      cache_mock = double
+
+      expect(cache_mock).to receive(:delete).with(['users', user.id, 'assigned_open_issues_count'])
+
+      allow(Rails).to receive(:cache).and_return(cache_mock)
+
+      user.invalidate_issue_cache_counts
+    end
+  end
+
+  context '#invalidate_merge_request_cache_counts' do
+    let(:user) { build_stubbed(:user) }
+
+    it 'invalidates cache for Merge Request counter' do
+      cache_mock = double
+
+      expect(cache_mock).to receive(:delete).with(['users', user.id, 'assigned_open_merge_requests_count'])
+
+      allow(Rails).to receive(:cache).and_return(cache_mock)
+
+      user.invalidate_merge_request_cache_counts
     end
   end
 end

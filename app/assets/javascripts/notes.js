@@ -7,6 +7,7 @@
 import $ from 'jquery';
 import Cookies from 'js-cookie';
 import CommentTypeToggle from './comment_type_toggle';
+import normalizeNewlines from './lib/utils/normalize_newlines';
 
 require('./autosave');
 window.autosize = require('vendor/autosize');
@@ -16,10 +17,6 @@ require('./gfm_auto_complete');
 require('vendor/jquery.caret'); // required by jquery.atwho
 require('vendor/jquery.atwho');
 require('./task_list');
-
-const normalizeNewlines = function(str) {
-  return str.replace(/\r\n/g, '\n');
-};
 
 (function() {
   var bind = function(fn, me) { return function() { return fn.apply(me, arguments); }; };
@@ -1385,7 +1382,7 @@ const normalizeNewlines = function(str) {
       const cachedNoteBodyText = $noteBodyText.html();
 
       // Show updated comment content temporarily
-      $noteBodyText.html(formContent);
+      $noteBodyText.html(_.escape(formContent));
       $editingNote.removeClass('is-editing fade-in-full').addClass('being-posted fade-in-half');
       $editingNote.find('.note-headline-meta a').html('<i class="fa fa-spinner fa-spin" aria-label="Comment is being updated" aria-hidden="true"></i>');
 
@@ -1398,7 +1395,7 @@ const normalizeNewlines = function(str) {
         })
         .fail(() => {
           // Submission failed, revert back to original note
-          $noteBodyText.html(cachedNoteBodyText);
+          $noteBodyText.html(_.escape(cachedNoteBodyText));
           $editingNote.removeClass('being-posted fade-in');
           $editingNote.find('.fa.fa-spinner').remove();
 
