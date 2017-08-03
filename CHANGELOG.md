@@ -2,6 +2,30 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 9.0.12 (2017-07-20)
+
+- Fix an infinite loop when handling user-supplied regular expressions.
+
+## 9.0.11 (2017-07-19)
+
+- Renders 404 if given project is not readable by the user on Todos dashboard.
+- Fix incorrect project authorizations.
+- Remove uploads/appearance symlink. A leftover from a previous migration.
+
+## 9.0.10 (2017-06-07)
+
+- No changes.
+
+## 9.0.9 (2017-06-02)
+
+- Fix visibility when referencing snippets.
+
+## 9.0.8 (2017-05-31)
+
+- Move uploads from 'public/uploads' to 'public/uploads/system'.
+- Restrict API X-Frame-Options to same origin.
+- Allow users autocomplete by author_id only for authenticated users.
+
 ## 9.0.7 (2017-05-05)
 
 - Enforce project features when searching blobs and wikis.
