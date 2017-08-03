@@ -497,11 +497,10 @@ GEM
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
     omniauth-google-oauth2 (0.4.1)
-      addressable (~> 2.3)
-      jwt (~> 1.0)
+      jwt (~> 1.5.2)
       multi_json (~> 1.3)
       omniauth (>= 1.1.1)
-      omniauth-oauth2 (~> 1.3.1)
+      omniauth-oauth2 (>= 1.3.1)
     omniauth-kerberos (0.3.0)
       omniauth-multipassword
       timfel-krb5-auth (~> 0.8)
@@ -611,6 +610,7 @@ GEM
       debugger-ruby_core_source (~> 1.3)
     rdoc (4.2.2)
       json (~> 1.4)
+    re2 (1.0.0)
     recaptcha (3.0.0)
       json
     recursive-open-struct (1.0.0)
@@ -995,6 +995,7 @@ DEPENDENCIES
   rainbow (~> 2.1.0)
   rblineprof (~> 0.3.6)
   rdoc (~> 4.2)
+  re2 (~> 1.0.0)
   recaptcha (~> 3.0)
   redcarpet (~> 3.4)
   redis (~> 3.2)
@@ -1058,4 +1059,4 @@ DEPENDENCIES
   wikicloth (= 0.8.1)
 
 BUNDLED WITH
-   1.14.6
+   1.15.0
