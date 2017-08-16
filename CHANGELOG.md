@@ -2,6 +2,42 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 9.4.5 (2017-08-14)
+
+- Fix deletion of deploy keys linked to other projects. !13162
+- Allow any logged in users to read_users_list even if it's restricted. !13201
+- Make Delete Merged Branches handle wildcard protected branches correctly. !13251
+- Fix an order of operations for CI connection error message in merge request widget. !13252
+- Fix pipeline_schedules pages when active schedule has an abnormal state. !13286
+- Add missing validation error for username change with container registry tags. !13356
+- Fix destroy of case-insensitive conflicting redirects. !13357
+- Project pending delete no longer return 500 error in admins projects view. !13389
+- Fix search box losing focus when typing.
+- Use jQuery to control scroll behavior in job log for cross browser consistency.
+- Use project_ref_path to create the link to a branch to fix links that 404.
+- improve file upload/replace experience.
+- fix jump to next discussion button.
+- Fixes new issue button for failed job returning 404.
+- Fix links to group milestones from issue and merge request sidebar.
+- Fixed sign-in restrictions buttons not toggling active state.
+- Fix Mattermost integration.
+- Change project FK migration to skip existing FKs.
+
+## 9.4.4 (2017-08-09)
+
+- Remove hidden symlinks from project import files.
+- Disallow Git URLs that include a username or hostname beginning with a non-alphanumeric character.
+
+## 9.4.3 (2017-07-31)
+
+- Fix Prometheus client PID reuse bug. !13130
+- Improve deploy environment chatops slash command. !13150
+- Fix asynchronous javascript paths when GitLab is installed under a relative URL. !13165
+- Fix LDAP authentication to Git repository or container registry.
+- Fixed new navigation breadcrumb title on help pages.
+- Ensure filesystem metrics test files are deleted.
+- Properly affixes nav bar in job view in microsoft edge.
+
 ## 9.4.2 (2017-07-28)
 
 - Fix job merge request link to a forked source project. !12965
