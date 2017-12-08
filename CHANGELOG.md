@@ -2,6 +2,11 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 9.5.10 (2017-11-08)
+
+- [SECURITY] Add X-Content-Type-Options header in API responses to make it more difficult to find other vulnerabilities.
+- [SECURITY] Properly translate IP addresses written in decimal, octal, or other formats in SSRF protections in project imports.
+
 ## 9.5.9 (2017-10-16)
 
 - [SECURITY] Move project repositories between namespaces when renaming users.
