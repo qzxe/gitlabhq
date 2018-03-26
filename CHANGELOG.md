@@ -2,6 +2,56 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 10.5.6 (2018-03-16)
+
+### Security (2 changes)
+
+- Fixed some SSRF vulnerabilities in services, hooks and integrations. !2337
+- Fix GitLab Auth0 integration signing in the wrong user.
+
+
+## 10.5.5 (2018-03-15)
+
+### Fixed (3 changes)
+
+- Fix missing uploads after group transfer. !17658
+- Fix code and wiki search results when filename is non-ASCII.
+- Remove double caching of Repository#empty?.
+
+### Performance (2 changes)
+
+- Adding missing indexes on taggings table.
+- Add index on section_name_id on ci_build_trace_sections table.
+
+
+## 10.5.4 (2018-03-08)
+
+### Fixed (11 changes)
+
+- Encode branch name as binary before creating a RPC request to copy attributes. !17291
+- Restart Unicorn and Sidekiq when GRPC throws 14:Endpoint read failed. !17293
+- Ensure group issues and merge requests pages show results from subgroups when there are no results from the current group. !17312
+- Prevent trace artifact migration to incur data loss. !17313
+- Return a 404 instead of 403 if the repository does not exist on disk. !17341
+- Allow Prometheus application to be installed from Cluster applications. !17372
+- Fixes Prometheus admin configuration page. !17377
+- Fix code and wiki search results pages when non-ASCII text is displayed. !17413
+- Fix pages flaky failure by reloading stale object. !17522
+- Fixed issue edit shortcut not opening edit form.
+- Revert Project.public_or_visible_to_user changes and only apply to snippets.
+
+### Performance (1 change)
+
+- Don't use ProjectsFinder in TodosFinder.
+
+
+## 10.5.3 (2018-03-01)
+
+### Security (1 change)
+
+- Ensure that OTP backup codes are always invalidated.
+
+
 ## 10.5.2 (2018-02-25)
 
 ### Fixed (7 changes)
