@@ -2,6 +2,60 @@
 documentation](doc/development/changelog.md) for instructions on adding your own
 entry.
 
+## 10.6.4 (2018-04-09)
+
+### Fixed (8 changes, 1 of them is from the community)
+
+- Correct copy text for the promote milestone and label modals. !17726
+- Avoid validation errors when running the Pages domain verification service. !17992
+- Fix autolinking URLs containing ampersands. !18045
+- Fix exceptions raised when migrating pipeline stages in the background. !18076
+- Work around Prometheus Helm chart name changes to fix integration. !18206 (joshlambert)
+- Don't show Jump to Discussion button on Issues.
+- Fix listing commit branch/tags that contain special characters.
+- Fix 404 in group boards when moving issue between lists.
+
+### Performance (1 change)
+
+- Free open file descriptors and libgit2 buffers in UpdatePagesService.
+
+
+## 10.6.3 (2018-04-03)
+
+### Security (2 changes)
+
+- Fix XSS on diff view stored on filenames.
+- Adds confidential notes channel for Slack/Mattermost.
+
+
+## 10.6.2 (2018-03-29)
+
+### Fixed (2 changes, 1 of them is from the community)
+
+- Don't capture trailing punctuation when autolinking. !17965
+- Cloning a repository over HTTPS with LDAP credentials causes a HTTP 401 Access denied. (Horatiu Eugen Vlad)
+
+
+## 10.6.1 (2018-03-27)
+
+### Security (1 change)
+
+- Bump rails-html-sanitizer to 1.0.4.
+
+### Fixed (2 changes)
+
+- Prevent auto-retry AccessDenied error from stopping transition to failed. !17862
+- Fix 500 error when trying to resolve non-ASCII conflicts in the editor. !17962
+
+### Performance (1 change)
+
+- Add indexes for user activity queries. !17890
+
+### Other (1 change)
+
+- Add documentation for runner IP address (#44232). !17837
+
+
 ## 10.6.0 (2018-03-22)
 
 ### Security (4 changes)
@@ -168,13 +222,17 @@ entry.
 - Add one group board to Libre.
 - Add support for filtering by source and target branch to merge requests API.
 
-### Other (14 changes, 3 of them are from the community)
+### Other (18 changes, 7 of them are from the community)
 
+- Group MRs on issue page by project and namespace. !8494 (Jeff Stubler)
+- Make oauth provider login generic. !8809 (Horatiu Eugen Vlad)
+- Add email button to new issue by email. !10942 (Islam Wazery)
 - Update vue component naming guidelines. !17018 (George Tsiolis)
 - Added new design for promotion modals. !17197
 - Update to github-linguist 5.3.x. !17241 (Ken Ding)
 - update toml-rb to 1.0.0. !17259 (Ken Ding)
 - Keep track of projects a user interacted with. !17327
+- Moved o_auth/saml/ldap modules under gitlab/auth. !17359 (Horatiu Eugen Vlad)
 - Enables eslint in codeclimate job. !17392
 - Port Labels Select dropdown to Vue. !17411
 - Add NOT NULL constraint to projects.namespace_id. !17448

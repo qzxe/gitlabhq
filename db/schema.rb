@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309160427) do
+ActiveRecord::Schema.define(version: 20180320182229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -728,6 +728,7 @@ ActiveRecord::Schema.define(version: 20180309160427) do
   end
 
   add_index "events", ["action"], name: "index_events_on_action", using: :btree
+  add_index "events", ["author_id", "project_id"], name: "index_events_on_author_id_and_project_id", using: :btree
   add_index "events", ["author_id"], name: "index_events_on_author_id", using: :btree
   add_index "events", ["project_id", "id"], name: "index_events_on_project_id_and_id", using: :btree
   add_index "events", ["target_type", "target_id"], name: "index_events_on_target_type_and_target_id", using: :btree
@@ -1659,6 +1660,7 @@ ActiveRecord::Schema.define(version: 20180309160427) do
     t.boolean "confidential_issues_events", default: true, null: false
     t.boolean "commit_events", default: true, null: false
     t.boolean "job_events", default: false, null: false
+    t.boolean "confidential_note_events", default: true
   end
 
   add_index "services", ["project_id"], name: "index_services_on_project_id", using: :btree
@@ -1856,6 +1858,7 @@ ActiveRecord::Schema.define(version: 20180309160427) do
   end
 
   add_index "user_interacted_projects", ["project_id", "user_id"], name: "index_user_interacted_projects_on_project_id_and_user_id", unique: true, using: :btree
+  add_index "user_interacted_projects", ["user_id"], name: "index_user_interacted_projects_on_user_id", using: :btree
 
   create_table "user_synced_attributes_metadata", force: :cascade do |t|
     t.boolean "name_synced", default: false
@@ -1995,6 +1998,7 @@ ActiveRecord::Schema.define(version: 20180309160427) do
     t.boolean "confidential_issues_events", default: false, null: false
     t.boolean "repository_update_events", default: false, null: false
     t.boolean "job_events", default: false, null: false
+    t.boolean "confidential_note_events"
   end
 
   add_index "web_hooks", ["project_id"], name: "index_web_hooks_on_project_id", using: :btree
