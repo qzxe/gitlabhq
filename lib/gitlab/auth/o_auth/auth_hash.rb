@@ -22,7 +22,7 @@ module Gitlab
         end
 
         def name
-          @name ||= get_info(:name) || "#{get_info(:first_name)} #{get_info(:last_name)}"
+          @name ||= "#{get_info(:first_name)} #{get_info(:last_name)}"
         end
 
         def username
