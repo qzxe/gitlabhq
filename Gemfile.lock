@@ -1024,7 +1024,7 @@ GEM
       msgpack (>= 0.4.3)
       optimist (>= 3.0.0)
     rchardet (1.8.0)
-    rdoc (6.1.2)
+    rdoc (6.3.1)
     re2 (1.2.0)
     recaptcha (4.13.1)
       json
@@ -1605,7 +1605,7 @@ DEPENDENCIES
   rainbow (~> 3.0)
   rblineprof (~> 0.3.6)
   rbtrace (~> 0.4)
-  rdoc (~> 6.1.2)
+  rdoc (~> 6.3.1)
   re2 (~> 1.2.0)
   recaptcha (~> 4.11)
   redis (~> 4.0)
